@@ -1,4 +1,4 @@
-// TODO: Declare any global variables we need
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // TODO: Update the scoreboard (same logic as in flip button click handler)
 
 })
-
+//Declare any global variables we need
 let totalFlips = 0
 let timesHeads = 0
 let timesTails = 0
@@ -35,16 +35,17 @@ let percTails = 0
 
 let coinFlipNum
 
-const coinFlipAudio = new Audio('assets/sounds/coin-flip.mp3')
+const coinFlipAudio = new Audio('./assets/sounds/coin-flip.mp3')
 coinFlipAudio.volume = 0.2
 
+// Code for when the flip button is clicked
 document.getElementById("flip").addEventListener("click", function(){
-    coinFlipNum = Math.round(Math.random())
+    coinFlipNum = Math.round(Math.random()) //Pick a number between 0 and 1 and round it to the closest integer (basically pick 0 or 1)
     if (coinFlipNum == 0 ) { // We use 0 as tails in this case
         coinFlipAudio.play()
         timesTails += 1
         totalFlips += 1
-        document.getElementById("penny-img").src = "assets/images/penny-tails.jpg"
+        document.getElementById("penny-img").src = "./assets/images/penny-tails.jpg"
         document.getElementById("tails").textContent = (timesTails)
         document.getElementById("responder").textContent = "You rolled tails!"
         percHeads = (Math.round(timesHeads / totalFlips * 100))
@@ -56,7 +57,7 @@ document.getElementById("flip").addEventListener("click", function(){
         coinFlipAudio.play()
         timesHeads += 1
         totalFlips += 1
-        document.getElementById("penny-img").src = "assets/images/penny-heads.jpg"
+        document.getElementById("penny-img").src = "./assets/images/penny-heads.jpg"
         document.getElementById("heads").textContent = (timesHeads)
         document.getElementById("responder").textContent = "You rolled heads!"
         percHeads = (Math.round(timesHeads / totalFlips * 100))
@@ -65,7 +66,7 @@ document.getElementById("flip").addEventListener("click", function(){
         document.getElementById("tails-percent").textContent = (`${percTails}%`)
     }
 })
-
+// Code for when clear button is clicked
 document.getElementById("clear").addEventListener("click", function(){
     totalFlips = timesHeads = timesTails = percHeads = percTails = 0
     document.getElementById("heads-percent").textContent = (`${percHeads}%`)
