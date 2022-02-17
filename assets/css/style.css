@@ -37,6 +37,7 @@ button {
     font-size: 1.5em;
     margin-right: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #flip,
